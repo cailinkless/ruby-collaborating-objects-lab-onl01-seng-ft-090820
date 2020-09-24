@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song
 
     @@all = []
@@ -18,10 +20,11 @@ class Song
     end
 
     def self.new_by_filename(filename)
-        name = filename.split(" - ")[0]
-        filename = self.new(name)
-        filename.artist_name = filename.split(" - ")[1]
-        return filename
+        
+        title = filename.split(" - ")[1]
+        new_song = self.new(title)
+        new_song.artist_name = filename.split(" - ")[0]
+        return new_song
     end
 
 
